@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $leads = $crm->searchLeadsByName($lead_name);
     } 
     // Add contact to the selected lead
-    elseif (isset($_POST['contact_name']) && isset($_POST['selected_lead_id'])) {
+    if (isset($_POST['contact_name']) && isset($_POST['selected_lead_id'])) {
         $lead_id = $_POST['selected_lead_id'];
         $contact_name = $_POST['contact_name'];
         $contact_email = $_POST['contact_email'];
@@ -29,27 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Add Contact</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/add_contact.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">CRM Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="add_contact.php">Add Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="add_lead.php">Add Lead</a></li>
-                    <li class="nav-item"><a class="nav-link" href="modify_contact.php">Modify Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="modify_lead.php">Modify Lead</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search_contact.php">Search Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search_lead.php">Search Lead</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
 
     <div class="container mt-5">
         <h1 class="text-center">Add Contact to a Lead</h1>
@@ -72,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="list-group">
                         <?php foreach ($leads as $lead): ?>
                             <div class="list-group-item">
-                                <h5><?= $lead['name'] ?></h5>
+                                <p><strong>Lead ID:</strong> <?= $lead['id'] ?></p>
+                                <p><strong>Name: </strong><?= $lead['name'] ?></p>
                                 <p><strong>Address:</strong> <?= $lead['address'] ?></p>
                                 <p><strong>Website:</strong> <a href="<?= $lead['website'] ?>" target="_blank"><?= $lead['website'] ?></a></p>
-                                <p><strong>Lead ID:</strong> <?= $lead['id'] ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>

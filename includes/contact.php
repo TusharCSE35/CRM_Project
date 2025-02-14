@@ -29,9 +29,19 @@ class Contact {
     }
 
     public function searchContactsByName($name) {
+        // global $pdo;
+        
+        // $stmt = $pdo->prepare("SELECT * FROM contacts WHERE name LIKE ?");
+        // $stmt->execute(['%' . $name . '%']);
+        // return $stmt->fetchAll(PDO::FETCH_ASSOC);
         global $pdo;
-        // Use a LIKE query for partial matches
-        $stmt = $pdo->prepare("SELECT * FROM contacts WHERE name LIKE ?");
+        $stmt = $pdo->prepare("
+            SELECT c.id, c.name, c.email, c.address, 
+                l.id AS lead_id, l.name AS lead_name, l.website AS lead_website, l.address AS lead_address
+            FROM contacts c
+            LEFT JOIN leads l ON c.lead_id = l.id
+            WHERE c.name LIKE ?
+        ");
         $stmt->execute(['%' . $name . '%']);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
