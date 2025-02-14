@@ -1,0 +1,51 @@
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.table th {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.table td {
+    text-align: left; 
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #273974;
+    color: white;
+}
+
+/* Action Buttons Styling */
+.table .btn {
+    width: 100px; /* Fixed width */
+    margin-right: 10px; /* Space between buttons */
+    padding: 10px; /* Button padding */
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Button Container Styling */
+.table td:last-child {
+    display: flex;
+    justify-content: center; /* Center the buttons in the last column */
+    align-items: center;
+}
+
+/* Center Heading */
+h1.text-center {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}

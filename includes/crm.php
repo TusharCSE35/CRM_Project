@@ -42,5 +42,9 @@ class CRM {
     public function searchContactsByName($name) {
         return $this->contact->searchContactsByName($name);
     }
+
+    public function deleteLead($id) {
+        return $this->lead->deleteLead($id);
+    }
 }
 ?>
