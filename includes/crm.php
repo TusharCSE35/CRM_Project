@@ -23,11 +23,19 @@ class CRM {
         return $this->lead->getLeads();
     }
 
-    public function displayContacts($lead_id) {
+    public function displayContacts() {
+        return $this->contact->getContacts();
+    }
+
+    public function displayContact($lead_id) {
         return $this->contact->getContactsByLeadId($lead_id);
     }
 
-    public function modifyLead($id, $name, $address, $website) {
+    public function getLeadById($id) {
+        return $this->lead->getLeadById($id);
+    }
+
+    public function updateLead($id, $name, $address, $website) {
         $this->lead->updateLead($id, $name, $address, $website);
     }
 

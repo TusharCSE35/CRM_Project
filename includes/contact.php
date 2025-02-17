@@ -7,6 +7,12 @@ class Contact {
         $stmt = $pdo->prepare("INSERT INTO contacts (lead_id, name, email, address) VALUES (?, ?, ?, ?)");
         $stmt->execute([$lead_id, $name, $email, $address]);
     }
+    
+    public function getContacts() {
+        global $pdo;
+        $stmt = $pdo->query("SELECT * FROM contacts");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getContactsByLeadId($lead_id) {
         global $pdo;
@@ -29,11 +35,6 @@ class Contact {
     }
 
     public function searchContactsByName($name) {
-        // global $pdo;
-        
-        // $stmt = $pdo->prepare("SELECT * FROM contacts WHERE name LIKE ?");
-        // $stmt->execute(['%' . $name . '%']);
-        // return $stmt->fetchAll(PDO::FETCH_ASSOC);
         global $pdo;
         $stmt = $pdo->prepare("
             SELECT c.id, c.name, c.email, c.address, 
