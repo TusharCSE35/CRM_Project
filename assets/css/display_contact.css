@@ -87,3 +87,11 @@ table.table {
         padding: 10px;
     }
 }
+
+
+.model-edit-success{
+    background-color: #ffc107;
+}
+.model-delete-success{
+    background-color: #ac3e3e;
+}

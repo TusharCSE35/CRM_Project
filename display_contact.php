@@ -133,7 +133,7 @@ $contacts = $crm->displayContacts();
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-success text-white">
+                <div class="modal-header text-white model-edit-success">
                     <h5 class="modal-title" id="successModalLabel">Success</h5>
                 </div>
                 <div class="modal-body text-center">
@@ -147,7 +147,7 @@ $contacts = $crm->displayContacts();
     <div class="modal fade" id="deleteSuccessModal" tabindex="-1" aria-labelledby="deleteSuccessModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-success text-white">
+                <div class="modal-header text-white model-delete-success">
                     <h5 class="modal-title" id="deleteSuccessModalLabel">Success</h5>
                 </div>
                 <div class="modal-body text-center">
