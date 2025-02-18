@@ -3,13 +3,12 @@ require_once 'includes/crm.php';
 
 $crm = new CRM();
 $contacts = [];
-$noResults = false; // Flag to track if no results were found.
+$noResults = false; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
     $searchTerm = trim($_POST["search"]);
     $contacts = $crm->searchContactsByName($searchTerm);
 
-    // If no contacts were found, set the flag.
     if (empty($contacts)) {
         $noResults = true;
     }

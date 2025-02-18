@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['address'];
     $website = $_POST['website'];
     $crm->addLead($name, $address, $website);
-    echo "Lead added successfully!";
 }
 ?>
 
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container mt-5">
         <h1 class="text-center">Add New Lead</h1>
-        <form action="add_lead.php" method="POST">
+        <form action="add_lead.php" method="POST" id="addLeadForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Lead Name</label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -49,8 +48,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
-    <!-- Bootstrap JS and Popper.js (for collapsible navbar) -->
+    <!-- Success Message Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                </div>
+                <div class="modal-body">
+                    Lead added successfully!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (for collapsible navbar and modal) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Show the success modal when the form is submitted
+        document.getElementById('addLeadForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent form from actually submitting
+            
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+
+            setTimeout(function() {
+                successModal.hide();
+                event.target.submit();
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

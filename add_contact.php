@@ -3,12 +3,10 @@ require_once 'includes/crm.php';
 $crm = new CRM();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Search leads by name
     if (isset($_POST['lead_name'])) {
         $lead_name = $_POST['lead_name'];
         $leads = $crm->searchLeadsByName($lead_name);
     } 
-    // Add contact to the selected lead
     if (isset($_POST['contact_name']) && isset($_POST['selected_lead_id'])) {
         $lead_id = $_POST['selected_lead_id'];
         $contact_name = $_POST['contact_name'];
@@ -16,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $contact_address = $_POST['contact_address'];
 
         $crm->addContact($lead_id, $contact_name, $contact_email, $contact_address);
-        echo "Contact added successfully under Lead ID: $lead_id!";
+        $contact_added = true; 
     }
 }
 ?>
@@ -36,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Navbar -->
     <?php include 'navbar.php'; ?>
 
+    <!-- Start add contact -->
     <div class="container mt-5">
         <h1 class="text-center">Add Contact to a Lead</h1>
 
-        <!-- Lead Search Form -->
         <form method="POST">
             <div class="mb-3">
                 <label for="lead_name" class="form-label">Search Lead by Name</label>
@@ -51,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Display Matching Leads -->
         <?php if (isset($leads) && count($leads) > 0): ?>
             <div class="row mt-4">
-                <!-- Lead Details on Left Side -->
                 <div class="col-md-6">
                     <h2 class="mb-4">Matching Leads</h2>
                     <div class="list-group">
@@ -105,8 +102,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
     </div>
 
+    <!-- Success Message Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                </div>
+                <div class="modal-body">
+                    Contact added successfully under Lead ID: <?= $lead_id ?>!
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS and Popper.js (for collapsible navbar) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        <?php if (isset($contact_added) && $contact_added): ?>
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+
+            setTimeout(function() {
+                successModal.hide();
+            }, 1000);
+        <?php endif; ?>
+    </script>
 </body>
 </html>

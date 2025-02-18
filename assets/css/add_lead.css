@@ -1,7 +1,7 @@
-/* Custom styling for the Add Lead page */
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background for the page */
+    background-color: #f8f9fa; 
 }
 
 h1 {
@@ -10,7 +10,6 @@ h1 {
     color: #333;
 }
 
-/* Form Styles */
 form {
     background-color: #ffffff;
     padding: 30px;
@@ -18,7 +17,6 @@ form {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Form elements */
 input.form-control, textarea.form-control {
     border-radius: 5px;
     box-shadow: none;
@@ -30,7 +28,6 @@ input.form-control:focus, textarea.form-control:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Button Styling */
 button.btn-primary {
     padding: 12px;
     font-size: 16px;
@@ -44,7 +41,6 @@ button.btn-primary:hover {
     border-color: #0056b3;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding-left: 15px;
@@ -63,3 +59,4 @@ button.btn-primary:hover {
         font-size: 14px;
     }
 }
+

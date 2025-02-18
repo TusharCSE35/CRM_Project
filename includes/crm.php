@@ -32,14 +32,19 @@ class CRM {
     }
 
     public function getLeadById($id) {
-        return $this->lead->getLeadById($id);
+        $lead = $this->lead->getLeadById($id);
+        if ($lead) {
+            return $lead;
+        } else {
+            return null; 
+        }
     }
 
     public function updateLead($id, $name, $address, $website) {
         $this->lead->updateLead($id, $name, $address, $website);
     }
 
-    public function modifyContact($id, $name, $email, $address) {
+    public function updateContact($id, $name, $email, $address) {
         $this->contact->updateContact($id, $name, $email, $address);
     }
 
@@ -53,6 +58,14 @@ class CRM {
 
     public function deleteLead($id) {
         return $this->lead->deleteLead($id);
+    }
+
+    public function deleteContact($id) {
+        return $this->contact->deleteContact($id);
+    }
+
+    public function getContactsByLeadId($leadId) {
+        return $this->contact->getContactsByLeadId($leadId);
     }
 }
 ?>

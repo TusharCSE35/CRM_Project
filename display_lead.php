@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/crm.php'; // Include your CRM class
+require_once 'includes/crm.php'; 
 $crm = new CRM();
 
 // Get all leads
@@ -8,7 +8,7 @@ $leads = $crm->displayLeads();
 if (isset($_GET['confirm_delete'])) {
     $delete_id = $_GET['confirm_delete'];
     $crm->deleteLead($delete_id);
-    header("Location: display_lead.php?deleted=1"); // Redirect after deletion with success flag
+    header("Location: display_lead.php?deleted=1");
     exit();
 }
 
@@ -19,9 +19,8 @@ if (isset($_POST['update_lead'])) {
     $address = $_POST['address'];
     $website = $_POST['website'];
     
-    // Update lead in database
     $crm->updateLead($id, $name, $address, $website);
-    header("Location: display_lead.php?updated=1"); // Redirect after update with success flag
+    header("Location: display_lead.php?updated=1"); 
     exit();
 }
 ?>
@@ -44,11 +43,9 @@ if (isset($_POST['update_lead'])) {
     <div class="container mt-5">
         <h1 class="text-center">All Leads</h1>
 
-        <!-- Check if leads are available -->
         <?php if (empty($leads)): ?>
-            <p class="text-center">No data available</p>
+            <h3 class="text-center">No Lead Data Available</h3>
         <?php else: ?>
-            <!-- Display Leads Table -->
             <div class="table-responsive mt-4">
                 <table class="table table-bordered table-striped">
                     <thead class="table">
@@ -83,7 +80,7 @@ if (isset($_POST['update_lead'])) {
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header mdel-header-update">
                     <h5 class="modal-title" id="updateModalLabel">Update Lead</h5>
                 </div>
                 <form method="POST" action="display_lead.php">
@@ -104,7 +101,7 @@ if (isset($_POST['update_lead'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary" name="update_lead">Update</button>
+                        <button type="submit" class="btn btn-primary btn-update" name="update_lead">Save</button>
                     </div>
                 </form>
             </div>
@@ -115,7 +112,7 @@ if (isset($_POST['update_lead'])) {
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header model-header-delete">
                     <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
                 </div>
                 <div class="modal-body">
@@ -133,9 +130,25 @@ if (isset($_POST['update_lead'])) {
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body text-center">
+                <div class="modal-header custom-modal-header custom-modal-header-update">
                     <h5 class="modal-title" id="successModalLabel">Action Successful</h5>
+                </div>
+                <div class="modal-body text-center">
                     <p>The lead has been successfully updated.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal for Deletion (Auto-Close After 1s) -->
+    <div class="modal fade" id="deleteSuccessModal" tabindex="-1" aria-labelledby="deleteSuccessModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header custom-modal-header custom-modal-header-delete">
+                    <h5 class="modal-title" id="deleteSuccessModalLabel">Action Successful</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p>The lead has been successfully deleted.</p>
                 </div>
             </div>
         </div>
@@ -147,7 +160,6 @@ if (isset($_POST['update_lead'])) {
 
     <!-- JavaScript for Handling Update and Delete -->
     <script>
-        // Handle update button click and populate modal with lead data
         document.querySelectorAll('.update-btn').forEach(button => {
             button.addEventListener('click', function() {
                 document.getElementById('updateId').value = this.getAttribute('data-id');
@@ -157,7 +169,6 @@ if (isset($_POST['update_lead'])) {
             });
         });
 
-        // Handle delete button click and set delete ID in modal
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function() {
                 let deleteId = this.getAttribute('data-id');
@@ -165,20 +176,27 @@ if (isset($_POST['update_lead'])) {
             });
         });
 
-        // Show success modal if lead was updated or deleted
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('updated') || urlParams.has('deleted')) {
+        if (urlParams.has('updated')) {
             var successModal = new bootstrap.Modal(document.getElementById('successModal'));
             successModal.show();
 
-            // Auto-close after 1 second (1000ms)
             setTimeout(function() {
                 successModal.hide();
-            }, 1000); 
-
-            // Remove 'updated' or 'deleted' from the URL after showing the modal
-            window.history.replaceState(null, "", window.location.pathname);
+            }, 1000);
         }
+
+        if (urlParams.has('deleted')) {
+            var deleteSuccessModal = new bootstrap.Modal(document.getElementById('deleteSuccessModal'));
+            deleteSuccessModal.show();
+
+            setTimeout(function() {
+                deleteSuccessModal.hide();
+            }, 1000);
+        }
+
+        // Remove URL parameters after showing modal
+        window.history.replaceState(null, "", window.location.pathname);
     </script>
 </body>
 </html>

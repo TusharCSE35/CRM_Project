@@ -1,18 +1,25 @@
 <?php
+
 require_once 'includes/crm.php';
 $crm = new CRM();
 
-$leads = $crm->displayLeads();
+$leads = $crm->displayLeads();  // Get all leads
 
 foreach ($leads as $lead) {
-    echo "<h2>" . $lead['name'] . "</h2>";
-    echo "<p>" . $lead['address'] . "</p>";
-    echo "<p>" . $lead['website'] . "</p>";
+    echo "<h2>" . htmlspecialchars($lead['name']) . "</h2>";
+    echo "<p>" . htmlspecialchars($lead['address']) . "</p>";
+    echo "<p>" . htmlspecialchars($lead['website']) . "</p>";
 
-    $contacts = $crm->displayContacts($lead['id']);
+    // Get contacts for the current lead
+    $contacts = $crm->getContactsByLeadId($lead['id']);  
     echo "<h3>Contacts:</h3>";
-    foreach ($contacts as $contact) {
-        echo "<p>" . $contact['name'] . " - " . $contact['email'] . "</p>";
+
+    if ($contacts) {
+        foreach ($contacts as $contact) {
+            echo "<p>" . htmlspecialchars($contact['name']) . " - " . htmlspecialchars($contact['email']) . "</p>";
+        }
+    } else {
+        echo "<p>No contacts found for this lead.</p>";
     }
 }
 ?>

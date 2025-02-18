@@ -1,4 +1,4 @@
-/* Table Styles */
+
 .table {
     width: 100%;
     margin-top: 30px;
@@ -19,11 +19,10 @@
     color: white;
 }
 
-/* Action Buttons Styling */
 .table .btn {
-    width: 100px; /* Fixed width */
-    margin-right: 10px; /* Space between buttons */
-    padding: 10px; /* Button padding */
+    width: 100px; 
+    margin-right: 10px; 
+    padding: 10px; 
 }
 
 .table .btn-warning {
@@ -36,16 +35,41 @@
     border-color: #dc3545;
 }
 
-/* Button Container Styling */
 .table td:last-child {
     display: flex;
-    justify-content: center; /* Center the buttons in the last column */
+    justify-content: center; 
     align-items: center;
 }
 
-/* Center Heading */
 h1.text-center {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 40px;
+}
+.mdel-header-update{
+    background-color: #ffc107;
+}
+.modal-footer .btn-update{
+    background-color: #ffc107;
+}
+
+.model-header-delete{
+    background-color: #c04f4f;
+    color: white;
+}
+
+.custom-modal-header {
+    padding: 1rem 1rem 1rem 1rem; 
+    position: relative;
+    color: white;
+}
+.custom-modal-header-update{
+    background-color: #ffc107;
+}
+.custom-modal-header-delete{
+    background-color: #c04f4f;
+}
+
+.custom-modal-header .btn-close {
+    display: none;
 }

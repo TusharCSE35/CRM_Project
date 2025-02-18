@@ -10,14 +10,20 @@ class Contact {
     
     public function getContacts() {
         global $pdo;
-        $stmt = $pdo->query("SELECT * FROM contacts");
+        $stmt = $pdo->query("
+            SELECT c.id, c.name, c.email, c.address, 
+                   l.id AS lead_id, l.name AS lead_name, 
+                   l.website AS lead_website, l.address AS lead_address
+            FROM contacts c
+            LEFT JOIN leads l ON c.lead_id = l.id
+        ");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getContactsByLeadId($lead_id) {
+    public function getContactsByLeadId($leadId) {
         global $pdo;
         $stmt = $pdo->prepare("SELECT * FROM contacts WHERE lead_id = ?");
-        $stmt->execute([$lead_id]);
+        $stmt->execute([$leadId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -46,5 +52,12 @@ class Contact {
         $stmt->execute(['%' . $name . '%']);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function deleteContact($id) {
+        global $pdo;
+        $stmt = $pdo->prepare("DELETE FROM contacts WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+    
 }
 ?>

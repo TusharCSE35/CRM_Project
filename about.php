@@ -16,13 +16,11 @@
     <div class="container mt-5">
         <h1 class="text-center page-title">🔥 About Our CRM Project 🔥</h1>
 
-        <!-- Project Overview -->
         <section class="card shadow-lg p-4 mb-5">
             <h3 class="section-title">🚀 Project Overview</h3>
             <p>Our CRM (Customer Relationship Management) system is designed to help businesses efficiently manage their leads, contacts, and customer interactions. It simplifies workflows and enhances customer engagement.</p>
         </section>
 
-        <!-- Project Process -->
         <section class="card shadow-lg p-4 mb-5">
             <h3 class="section-title">🛠 Project Process</h3>
             <ol class="custom-list">
@@ -34,7 +32,6 @@
             </ol>
         </section>
 
-        <!-- Key Features -->
         <section class="card shadow-lg p-4 mb-5">
             <h3 class="section-title">✨ Key Features</h3>
             <div class="row">
@@ -47,7 +44,6 @@
             </div>
         </section>
 
-        <!-- Technologies Used -->
         <section class="card shadow-lg p-4 mb-5">
             <h3 class="section-title">💻 Technologies Used</h3>
             <ul class="custom-list">
@@ -58,7 +54,6 @@
             </ul>
         </section>
 
-        <!-- Contact Form -->
         <section class="card shadow-lg p-4 mb-5">
             <h3 class="section-title">📩 Contact Us</h3>
             <p>If you have any queries or want to collaborate, reach out to us:</p>

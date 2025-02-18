@@ -3,7 +3,6 @@ require_once 'includes/crm.php';
 $crm = new CRM();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Search leads by name
     if (isset($_POST['lead_name'])) {
         $lead_name = $_POST['lead_name'];
         $leads = $crm->searchLeadsByName($lead_name);

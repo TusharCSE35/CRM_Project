@@ -5,9 +5,9 @@
 
 .navbar a.navbar-brand,
 .navbar a.nav-link {
-    color: #f5eded !important; /* White text for navbar links */
+    color: #f5eded !important; 
 }
 
 .navbar a.nav-link:hover {
-    color: #706f6f !important; /* Light gray on hover */
+    color: #706f6f !important; 
 }

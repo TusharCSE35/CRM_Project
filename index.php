@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/db.php'; // Include your database connection
+require_once 'includes/db.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ require_once 'includes/db.php'; // Include your database connection
     <title>CRM Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css"> 
 </head>
 <body>
 
@@ -22,9 +22,7 @@ require_once 'includes/db.php'; // Include your database connection
     <!-- Main Content -->
     <div class="container-fluid main-container">
         <div class="row align-items-center">
-            <!-- Left Section (Now Expands Dynamically) -->
             <div class="col-md-8 left-content">
-                <!-- Leads Section -->
                 <div class="section">
                     <h2 class="section-title">Leads</h2>
                     <a href="add_lead.php" class="btn btn-primary wide-btn">Add Lead</a>
@@ -32,7 +30,6 @@ require_once 'includes/db.php'; // Include your database connection
                     <a href="display_lead.php" class="btn btn-success wide-btn">Display Lead</a>
                 </div>
 
-                <!-- Contacts Section (Shifted Right Dynamically) -->
                 <div class="section contacts-section">
                     <h2 class="section-title">Contacts</h2>
                     <a href="add_contact.php" class="btn btn-primary wide-btn">Add Contact</a>
@@ -40,14 +37,12 @@ require_once 'includes/db.php'; // Include your database connection
                     <a href="display_contact.php" class="btn btn-success wide-btn">Display Contact</a>
                 </div>
 
-                <!-- Details Section (Also Shifts Dynamically) -->
                 <div class="section details-section">
                     <h2 class="section-title">Details</h2>
                     <a href="display_lead_contact.php" class="btn btn-dark wide-btn">Display Lead & Contact</a>
                 </div>
             </div>
 
-            <!-- Right Background Image Section (Reduced Width) -->
             <div class="col-md-4"></div>
         </div>
     </div>
