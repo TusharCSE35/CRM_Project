@@ -3,7 +3,6 @@ require_once 'classes/crm.php';
 
 $crm = new CRM();
 $leads = $crm->displayLeads();
-
 ?>
 
 <!DOCTYPE html>
