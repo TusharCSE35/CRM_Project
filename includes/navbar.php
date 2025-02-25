@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <!-- Lead Dropdown -->
+               
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarLead" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Lead
@@ -17,7 +17,7 @@
                         <li><a class="dropdown-item" href="display_lead.php">Display Lead</a></li>
                     </ul>
                 </li>
-                <!-- Contact Dropdown -->
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarContact" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Contact
@@ -28,9 +28,9 @@
                         <li><a class="dropdown-item" href="display_contact.php">Display Contact</a></li>
                     </ul>
                 </li>
-                <!-- Display Lead & Contact -->
+              
                 <li class="nav-item"><a class="nav-link" href="display_lead_contact.php">Display Lead & Contact</a></li>
-                <!-- About -->
+             
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
             </ul>
         </div>

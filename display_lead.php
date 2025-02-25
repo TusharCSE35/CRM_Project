@@ -1,28 +1,9 @@
 <?php
-require_once 'classes/crm.php'; 
-$crm = new CRM();
+require_once 'controllers/lead_controller.php';
 
-// Get all leads
-$leads = $crm->displayLeads();
-
-if (isset($_GET['confirm_delete'])) {
-    $delete_id = $_GET['confirm_delete'];
-    $crm->deleteLead($delete_id);
-    header("Location: display_lead.php?deleted=1");
-    exit();
-}
-
-// Handle update form submission
-if (isset($_POST['update_lead'])) {
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $website = $_POST['website'];
-    
-    $crm->updateLead($id, $name, $address, $website);
-    header("Location: display_lead.php?updated=1"); 
-    exit();
-}
+$leadController = new LeadController();
+$leadController->handleRequest();
+$leads = $leadController->displayLeads();
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +12,7 @@ if (isset($_POST['update_lead'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Leads</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/display_lead.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
@@ -154,7 +135,6 @@ if (isset($_POST['update_lead'])) {
         </div>
     </div>
 
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
@@ -195,7 +175,6 @@ if (isset($_POST['update_lead'])) {
             }, 1000);
         }
 
-        // Remove URL parameters after showing modal
         window.history.replaceState(null, "", window.location.pathname);
     </script>
 </body>

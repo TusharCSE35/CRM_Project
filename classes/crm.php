@@ -2,7 +2,7 @@
 require_once 'lead.php';
 require_once 'contact.php';
 
-class CRM {
+class CRM{
     private $lead;
     private $contact;
 

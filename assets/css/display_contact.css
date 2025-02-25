@@ -1,7 +1,6 @@
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;
 }
 
 h1 {
@@ -29,6 +28,7 @@ table.table {
 .table td, .table th {
     padding: 12px;
     border: 1px solid #ddd;
+    vertical-align: middle;
 }
 
 .table a {
@@ -88,10 +88,27 @@ table.table {
     }
 }
 
-
-.model-edit-success{
+.model-edit-success {
     background-color: #ffc107;
 }
-.model-delete-success{
+
+.model-delete-success {
     background-color: #ac3e3e;
 }
+
+/* Success Modal */
+.modal .modal-header .modal-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.modal .modal-body p {
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.modal-footer .btn {
+    font-size: 1rem;
+}
+

@@ -1,13 +1,11 @@
 <?php
-require_once 'classes/crm.php';
-$crm = new CRM();
+require_once 'controllers/lead_controller.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['lead_name'])) {
-        $lead_name = $_POST['lead_name'];
-        $leads = $crm->searchLeadsByName($lead_name);
-    } 
-}
+$leadController = new LeadController();
+$searchResult = $leadController->searchLeads();
+
+$leads = $searchResult['leads'] ?? null;
+$searched_name = $searchResult['searched_name'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -62,9 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </tbody>
                 </table>
             </div>
-        <?php elseif (isset($leads)): ?>
-            <p class="mt-4 text-danger">No leads found with the name "<?= htmlspecialchars($lead_name) ?>". Please try a different name.</p>
-        <?php endif; ?>
+            <?php elseif (isset($searched_name)): ?>
+                <p class="mt-4 text-danger">No leads found with the name "<?= htmlspecialchars($searched_name) ?>". Please try a different name.</p>
+            <?php endif; ?>
+
     </div>
 
     <!-- Bootstrap JS and Popper.js -->
