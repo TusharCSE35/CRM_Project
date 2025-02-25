@@ -8,10 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/about.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
     <!-- Navbar -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
     <div class="container mt-5">
         <h1 class="text-center page-title">🔥 About Our CRM Project 🔥</h1>
@@ -76,15 +77,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container text-center">
-            <p>Connect with us:</p>
-            <a href="https://www.facebook.com/tushar.sarkar.7186896" target="_blank" class="social-icon">🌍 Facebook</a> |
-            <a href="https://github.com/TusharCSE35" target="_blank" class="social-icon">💻 GitHub</a> |
-            <a href="https://www.linkedin.com/in/tushar-sarkar-433726195/" target="_blank" class="social-icon">🔗 LinkedIn</a>
-            <p class="mt-2">Developed by <strong>Tushar Sarkar</strong></p>
-        </div>
-    </footer>
+    <?php include 'includes/navbar.php'; ?>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

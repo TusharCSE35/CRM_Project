@@ -19,7 +19,7 @@ $leads = $crm->displayLeads();
 </head>
 <body>
     <!-- Navbar -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
     <div class="container mt-5">
         <h1 class="text-center mb-4">Display Leads and Contacts</h1>

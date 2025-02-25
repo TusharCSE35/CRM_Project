@@ -38,7 +38,7 @@ if (isset($_POST['update_lead'])) {
 </head>
 <body>
     <!-- Navbar -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
     <div class="container mt-5">
         <h1 class="text-center">All Leads</h1>
