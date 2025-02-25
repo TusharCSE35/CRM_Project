@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/crm.php'; 
+require_once 'classes/crm.php'; 
 $crm = new CRM();
 
 // Get all leads
