@@ -1,0 +1,97 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; 
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #273974;
+    color: white;
+    text-align: center;
+}
+
+.table td, .table th {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.table .btn-sm {
+    margin: 2px;
+}
+
+.lead-row td.lead-info {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #333;
+    border-right: 2px solid #ddd;
+}
+
+.table .contact-row td {
+    background-color: #ffffff;
+}
+
+.lead-info b {
+    font-size: 1.1em;
+}
+
+.lead-info a {
+    color: #007bff;
+}
+
+.lead-info a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .table th, .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .lead-row td.lead-info {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+
+.model-edit-success{
+    background-color: #ffc107;
+}
+.model-delete-success{
+    background-color: #ac3e3e;
+}

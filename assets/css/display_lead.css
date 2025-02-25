@@ -1,0 +1,75 @@
+
+.table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.table th {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.table td {
+    text-align: left; 
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #273974;
+    color: white;
+}
+
+.table .btn {
+    width: 100px; 
+    margin-right: 10px; 
+    padding: 10px; 
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.table td:last-child {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+h1.text-center {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+.mdel-header-update{
+    background-color: #ffc107;
+}
+.modal-footer .btn-update{
+    background-color: #ffc107;
+}
+
+.model-header-delete{
+    background-color: #c04f4f;
+    color: white;
+}
+
+.custom-modal-header {
+    padding: 1rem 1rem 1rem 1rem; 
+    position: relative;
+    color: white;
+}
+.custom-modal-header-update{
+    background-color: #ffc107;
+}
+.custom-modal-header-delete{
+    background-color: #c04f4f;
+}
+
+.custom-modal-header .btn-close {
+    display: none;
+}
